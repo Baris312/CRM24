@@ -1,4 +1,4 @@
-public class BarisTask1
+public class CRM_Task1
     {
         public static void main(String[] args)
             {
