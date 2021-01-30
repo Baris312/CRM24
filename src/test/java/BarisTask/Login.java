@@ -37,7 +37,7 @@ public class Login
 
         WebElement loginBox= driver.findElement(By.xpath("//input[@class='login-inp'][1]"));
         loginBox.click();
-        loginBox.sendKeys("hr37@cybertekschool.com");
+        loginBox.sendKeys("helpdesk39@cybertekschool.com");
              Thread.sleep(2000);
 
              WebElement passwordBox= driver.findElement(By.xpath("//input[@type='password']"));
@@ -55,9 +55,15 @@ public class Login
 
 @Test
 public void poll(){
-        WebElement activityStream = driver.findElement(By.xpath("//a[@title='Activity Stream']"));
-        activityStream.click();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+    WebElement ActivityStream = driver.findElement(By.xpath("//span[@class='menu-item-link-text']"));
+     ActivityStream.click();
+
+
+
+
+
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 
         WebElement poll= driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-vote']"));
@@ -67,24 +73,40 @@ public void poll(){
 
 }
  @Test
- public void textInPoll()
+ public void textInPoll() throws InterruptedException
      {
 
-driver.switchTo().frame(0);
-WebElement pollFrame= driver.findElement(By.xpath("//body"));
-//pollFrame.click();
-         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            pollFrame.sendKeys("test 2 complete");
 
-            driver.switchTo().defaultContent();
+         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+
+            WebElement QuestionBox= driver.findElement(By.xpath("//input[@name='UF_BLOG_POST_VOTE_n0_DATA[QUESTIONS][0][QUESTION]']"));
+
+
+           QuestionBox.click();
+
+           QuestionBox.sendKeys("test  complete ?");
+
+         WebElement AnswerBox1= driver.findElement(By.xpath("//input[@name='UF_BLOG_POST_VOTE_n0_DATA[QUESTIONS][0][ANSWERS][0][MESSAGE]']"));
+         AnswerBox1.click();
+         AnswerBox1.sendKeys("YES");
+         Thread.sleep(2000);
+         WebElement AnswerBox2= driver.findElement(By.xpath("//input[@name='UF_BLOG_POST_VOTE_n0_DATA[QUESTIONS][0][ANSWERS][1][MESSAGE]']"));
+         AnswerBox2.click();
+         AnswerBox2.sendKeys("NO");
+
+
 
 
      }
 
-        @AfterClass
-        public void close(){
 
-         //   driver.close();
+
+        @AfterClass
+        public void close() throws InterruptedException
+            {
+            Thread.sleep(2000);
+          driver.close();
         }
 
 
