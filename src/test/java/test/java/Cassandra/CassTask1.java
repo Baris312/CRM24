@@ -6,5 +6,6 @@ public class CassTask1 {
         // first try
         // hey
         System.out.println("New try");
+        System.out.println("New test");
     }
 }
